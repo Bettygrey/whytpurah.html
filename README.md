@@ -1,1 +1,1 @@
-# whytpurahstore
+# whytpurah_shop
