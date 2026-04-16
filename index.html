@@ -202,6 +202,31 @@
             margin-bottom: 20px;
         }
 
+        .shop-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .shop-header-row .section-label { margin-bottom: 0; }
+
+        .download-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--brown);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            background: var(--milky-warm);
+            border: 1px solid var(--milky-deep);
+            border-radius: 40px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .download-pill:hover { background: var(--milky-deep); }
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -652,6 +677,7 @@
             .detail-layout, .cart-layout, .checkout-layout { grid-template-columns: 1fr; }
             .content-area { padding: 24px 20px; }
             .topbar { padding: 14px 20px; }
+            .shop-header-row { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
     </style>
 </head>
@@ -677,11 +703,14 @@
             <div class="nav-item" id="nav-chat" onclick="navigate('chat', this)">
                 <span class="nav-icon">💬</span><span>Chat</span>
             </div>
-            <div class="nav-item" id="nav-profile" onclick="navigate('profile', this)">
+            <div class="nav-item" id="nav-profile" onclick="navigate('profile', document.getElementById('nav-profile'))">
                 <span class="nav-icon">⚙️</span><span>Account</span>
             </div>
         </nav>
-        <div class="sidebar-footer">© 2025 Whyt Purah</div>
+        <div class="sidebar-footer">
+            © 2025 Whyt Purah<br>
+            <a href="https://apkpure.com/p/com.whytpurah.store" target="_blank" style="color:var(--mint-light); text-decoration:none; font-size:11px; letter-spacing:0.5px;">📱 Download mobile version</a>
+        </div>
     </aside>
 
     <!-- ===== MAIN ===== -->
@@ -703,7 +732,12 @@
                 <div class="search-row">
                     <input type="text" class="search-box" placeholder="🔍  Search products…" onkeyup="filterProducts(this.value)">
                 </div>
-                <p class="section-label">All Products</p>
+                <div class="shop-header-row">
+                    <p class="section-label">All Products</p>
+                    <a href="https://apkpure.com/p/com.whytpurah.store" target="_blank" class="download-pill">
+                        📱 Download Mobile App
+                    </a>
+                </div>
                 <div class="product-grid" id="product-grid">
                     <p style="color:var(--text-light); font-size:14px; grid-column:1/-1;">Loading products…</p>
                 </div>
